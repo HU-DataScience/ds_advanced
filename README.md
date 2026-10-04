@@ -59,8 +59,9 @@ quiz/ 内の提出用ファイルは Git の管理対象外です。
 ### 第2回
 
 初回のみ GitHub から教材を取得します。
-
+```
 git clone https://github.com/HU-DataScience/ds_advanced.git
+```
 
 ### 第3回〜第6回
 
@@ -73,8 +74,10 @@ quiz/ に移動して実行します。
 
 授業開始時に教材を最新版へ更新します。
 
+```
 cd ~/Documents/ds_python/ds_advanced
 git pull
+```
 
 Live演習では notebooks/ のNotebookを使用します。
 
@@ -86,10 +89,14 @@ Moodleからダウンロードして quiz/ で実行します。
 この授業では Miniforge を利用し、
 授業用環境 ds を使用します。
 
+```
 conda activate ds
+```
 
 Python 3.12 を使用します。
 
 必要に応じて environment.yml から環境を作成できます。
 
+```
 conda env create -f environment.yml
+```
