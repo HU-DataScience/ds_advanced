@@ -20,7 +20,7 @@ Git / GitHub は学習対象ではなく、教材の配布・更新に使用し�
 - 分析結果を解釈し、次に何を調べるべきか判断する
 
 ## Repository structure
-
+```
 ds_advanced/
 ├── README.md
 ├── environment.yml
@@ -28,6 +28,7 @@ ds_advanced/
 ├── src/           # 補助的なPythonコード
 ├── notebooks/     # Live演習用Notebook
 └── quiz/          # Moodleから配布される小テスト用ファイル
+```
 
 ### data
 
