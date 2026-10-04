@@ -1,208 +1,94 @@
 # Data Science Advanced
 
-弘前大学「データサイエンス応用」で使用する教材・演習用リポジトリです。
+弘前大学「データサイエンス応用B」で使用する教材配布用リポジトリです。
 
-この授業では、Pythonによるデータ分析・統計モデリング・機械学習に加えて、VS Code、Miniforge、Git / GitHubを用いたデータ分析プロジェクトの管理方法を学びます。
+この授業では、Pythonによるデータ分析・統計・機械学習を学びます。
+第7回以降は GitHub Copilot も利用し、生成されたコードを読んで理解しながら分析を進めます。
+
+Git / GitHub は学習対象ではなく、教材の配布・更新に使用します。
 
 ## Course objectives
 
 この授業では、以下の能力を身につけることを目標とします。
 
-- VS CodeとMiniforgeを用いてPython実行環境を構築する
-- Pythonを用いてデータを処理・分析する
-- NumPy、pandas、Matplotlibを用いてデータ分析を行う
-- 統計モデリングや機械学習をPythonで実行する
-- Gitを用いてコードや分析結果の変更履歴を管理する
-- GitHub上のリポジトリを利用してプロジェクトを管理する
-- Jupyter NotebookとPythonスクリプトを目的に応じて使い分ける
-- AIによるコーディング支援を適切に利用し、生成されたコードを確認・検証する
+- VS Code と Miniforge を用いて Python 実行環境を構築する
+- Python コードを読んで、処理内容を理解する
+- pandas、Matplotlib などを用いてデータを分析する
+- 統計・機械学習の基本的な考え方を理解する
+- Jupyter Notebook を用いてデータ分析を実行する
+- AIによるコーディング支援を利用し、生成されたコードを確認・検証する
+- 分析結果を解釈し、次に何を調べるべきか判断する
 
 ## Repository structure
 
-```text
 ds_advanced/
 ├── README.md
 ├── environment.yml
-├── notebooks/     # Jupyter Notebook
-├── scripts/       # 実行用Pythonコード
-├── src/           # 再利用するPythonモジュール
-├── data/          # 授業用データ
-└── exercises/     # 演習課題
-```
-
-### notebooks
-
-授業で使用するJupyter Notebookを置きます。
-
-データの確認、試行錯誤、可視化、統計分析など、対話的な分析に使用します。
-
-### scripts
-
-単独で実行するPythonプログラム（`.py`）を置きます。
-
-### src
-
-複数のNotebookやPythonプログラムから再利用する関数やモジュールを置きます。
+├── data/          # 授業で使用するデータ
+├── src/           # 補助的なPythonコード
+├── notebooks/     # Live演習用Notebook
+└── quiz/          # Moodleから配布される小テスト用ファイル
 
 ### data
 
 授業で使用するデータを置きます。
 
-公開可能で、再配布に問題のないデータのみを格納します。
+### src
 
-### exercises
+Notebookから利用する補助的なPythonコードを置きます。
 
-授業中および宿題で使用する演習課題を置きます。
+### notebooks
+
+第7回以降のLive演習で使用するJupyter Notebookを置きます。
+
+GitHubから取得したNotebookは原本として残し、
+授業では別名でコピーして実行・編集します。
+
+### quiz
+
+小テスト用の作業フォルダです。
+
+小テスト開始時に Moodle から配布されたファイルをダウンロードし、
+このフォルダに移動して実行します。
+
+quiz/ 内の提出用ファイルは Git の管理対象外です。
+
+## GitHubの使い方
+
+### 第2回
+
+初回のみ GitHub から教材を取得します。
+
+git clone https://github.com/HU-DataScience/ds_advanced.git
+
+### 第3回〜第6回
+
+Python基礎は Moodle 教材を使用します。
+
+小テストは Moodle からダウンロードし、
+quiz/ に移動して実行します。
+
+### 第7回以降
+
+授業開始時に教材を最新版へ更新します。
+
+cd ~/Documents/ds_python/ds_advanced
+git pull
+
+Live演習では notebooks/ のNotebookを使用します。
+
+小テストは第3回以降と同様に、
+Moodleからダウンロードして quiz/ で実行します。
 
 ## Python environment
 
-この授業では、Miniforgeを利用してPython環境を管理します。
+この授業では Miniforge を利用し、
+授業用環境 ds を使用します。
 
-授業用の環境名は
+conda activate ds
 
-```text
-ds
-```
+Python 3.12 を使用します。
 
-とし、Python 3.12を使用します。
+必要に応じて environment.yml から環境を作成できます。
 
-リポジトリに含まれる `environment.yml` から環境を作成できます。
-
-```bash
 conda env create -f environment.yml
-```
-
-作成した環境を有効にします。
-
-```bash
-conda activate ds
-```
-
-すでに `ds` 環境を作成済みの場合は、
-
-```bash
-conda activate ds
-```
-
-だけで構いません。
-
-## Clone this repository
-
-このリポジトリは公開リポジトリです。
-
-GitHubアカウントを持っていなくても、HTTPSを使って自分のPCにcloneできます。
-
-```bash
-git clone https://github.com/HU-DataScience/ds_advanced.git
-```
-
-cloneしたフォルダへ移動します。
-
-```bash
-cd ds_advanced
-```
-
-VS Codeで開く場合は、
-
-```bash
-code .
-```
-
-または、VS Codeの
-
-```text
-File → Open Folder...
-```
-
-から `ds_advanced` フォルダを開いてください。
-
-## Basic workflow
-
-授業では、基本的に次の流れで作業します。
-
-```text
-GitHubから教材を取得
-        ↓
-VS Codeでプロジェクトを開く
-        ↓
-Python / Jupyter Notebookで作業
-        ↓
-コードを実行
-        ↓
-結果を確認
-        ↓
-Gitで変更内容を確認
-        ↓
-変更履歴を記録
-```
-
-Gitを利用する際は、特に次の流れを意識します。
-
-```text
-編集
- ↓
-実行・確認
- ↓
-git status
- ↓
-git diff
- ↓
-git add
- ↓
-git commit
-```
-
-## Git
-
-この授業では、Gitを用いて分析コードやNotebookの変更履歴を管理します。
-
-主に使用するコマンドは次の通りです。
-
-```bash
-git status
-git diff
-git add
-git commit
-git log
-git restore
-git clone
-```
-
-GitHubとの連携については、授業の進行に合わせて段階的に扱います。
-
-## Google Colab
-
-授業の基本環境は、各自のPC上の
-
-```text
-VS Code + Miniforge
-```
-
-です。
-
-ただし、以下の場合にはGoogle Colabも利用します。
-
-- ローカル環境の構築に問題がある場合
-- 一時的にブラウザ上でPythonを実行したい場合
-- GPUを必要とする計算を行う場合
-
-通常のデータ分析およびプロジェクト管理は、VS Code + Miniforge + Gitを基本とします。
-
-## Notes
-
-- 授業ではPython 3.12を使用します。
-- Python環境として `ds` を使用します。
-- `.py` と `.ipynb` の両方を使用します。
-- 大容量データはGitHubに保存しません。
-- 個人情報や公開できないデータをGitHubにアップロードしないでください。
-- パスワード、APIキー、アクセストークンなどの秘密情報をGitHubに保存しないでください。
-- AIが生成したコードを利用する場合も、内容を確認し、実行結果を検証してください。
-
-## Course
-
-**データサイエンス応用 / Data Science Advanced**
-
-Hirosaki University  
-HU Data Science
-
-
